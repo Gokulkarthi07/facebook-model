@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Facebook Style </title>
+
+  <!-- Bootstrap -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <style>
+    body {
+      background-color: #f0f2f5;
+      font-family: Arial, sans-serif;
+    }
+
+    /* Top Bar */
+    .navbar {
+      background-color: #1877f2;
+    }
+    .navbar-brand {
+      color: white !important;
+      font-size: 2rem;
+      font-weight: bold;
+    }
+
+    /* Container */
+    .main-container {
+      margin-top: 80px;
+    }
+
+    .card {
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+
+    .form-control {
+      border-radius: 8px;
+    }
+
+    .btn-facebook {
+      background-color: #1877f2;
+      color: white;
+      font-weight: bold;
+      border-radius: 8px;
+    }
+    .btn-facebook:hover {
+      background-color: #145dbf;
+    }
+  </style>
+</head>
+<body>
+  <!-- Top Navbar -->
+  <nav class="navbar navbar-expand-lg">
+    <div class="container">
+      <a class="navbar-brand" href="#">facebook</a>
+    </div>
+  </nav>
+
+  <!-- Main Section -->
+  <div class="container main-container">
+    <div class="row justify-content-center">
+      
+      <!-- Login Form -->
+      <div class="col-md-4">
+        <div class="card p-4 mb-4">
+          <h4 class="mb-3">Login</h4>
+          <form id="loginForm">
+            <div class="mb-3">
+              <input type="email" class="form-control" id="loginEmail" placeholder="Email address" required>
+            </div>
+            <div class="mb-3">
+              <input type="password" class="form-control" id="loginPassword" placeholder="Password" required>
+            </div>
+            <button type="submit" class="btn btn-facebook w-100">Log In</button>
+          </form>
+        </div>
+      </div>
+
+      <!-- Registration Form -->
+      <div class="col-md-6">
+        <div class="card p-4">
+          <h4 class="mb-3">Create a new account</h4>
+          <form id="registerForm">
+            <div class="row">
+              <div class="col-md-6 mb-3">
+                <input type="text" class="form-control" id="firstName" placeholder="First name" required>
+              </div>
+              <div class="col-md-6 mb-3">
+                <input type="text" class="form-control" id="lastName" placeholder="Surname" required>
+              </div>
+            </div>
+            <div class="mb-3">
+              <input type="email" class="form-control" id="regEmail" placeholder="Email address" required>
+            </div>
+            <div class="mb-3">
+              <input type="password" class="form-control" id="regPassword" placeholder="New password" required>
+            </div>
+            <div class="mb-3">
+              <label class="form-label">Date of birth</label>
+              <input type="date" class="form-control" id="dob" required>
+            </div>
+            <div class="mb-3">
+              <label class="form-label">Gender</label><br>
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="gender" id="male" value="Male" required>
+                <label class="form-check-label" for="male">Male</label>
+              </div>
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="gender" id="female" value="Female">
+                <label class="form-check-label" for="female">Female</label>
+              </div>
+            </div>
+            <button type="submit" class="btn btn-success w-100">Sign Up</button>
+          </form>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+  <!-- Simple Validation Script -->
+  <script>
+    // Login Validation
+    document.getElementById("loginForm").addEventListener("submit", function(e) {
+      e.preventDefault();
+      let email = document.getElementById("loginEmail").value;
+      let password = document.getElementById("loginPassword").value;
+      if(email && password){
+        alert("Login Successful!");
+      } else {
+        alert("Please enter valid credentials.");
+      }
+    });
+
+    // Registration Validation
+    document.getElementById("registerForm").addEventListener("submit", function(e) {
+      e.preventDefault();
+      let fname = document.getElementById("firstName").value;
+      let lname = document.getElementById("lastName").value;
+      let email = document.getElementById("regEmail").value;
+      let password = document.getElementById("regPassword").value;
+      let dob = document.getElementById("dob").value;
+      let gender = document.querySelector('input[name="gender"]:checked');
+      
+      if(fname && lname && email && password && dob && gender){
+        alert("Registration Successful!");
+      } else {
+        alert("Please fill all the fields.");
+      }
+    });
+  </script>
+</body>
+</html>
